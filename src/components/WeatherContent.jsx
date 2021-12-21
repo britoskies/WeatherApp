@@ -1,5 +1,3 @@
-
-
 function WeatherContent(props) {
 
     const dateGenerator = date => {
