@@ -10,17 +10,27 @@ function App() {
     main: {
       temp: ''
     },
-    weather: []
+    weather: [],
   });
+
+  const warmBg = "container text-white font-sans: Segoe UI ";
+  const coldBg = "container cold text-white font-sans: Segoe UI";
+  const cloudyBg = "container cloudy text-white font-sans: Segoe UI";
+
+  const changeTheme = (temp) => {
+    if (temp <= 0.9) {
+      return coldBg;
+    }
+    if (temp < 23) {
+      return cloudyBg;
+    }
+    return warmBg;
+  }
 
   return (
     <React.Fragment>
-      <div className={ 
-          weatherData.main.temp < 15 
-          ? 'container cold text-white font-serif	font-family: Cambria'
-          : 'container text-white font-serif	font-family: Cambria'
-        }>
-        <WeatherForm city={cityName} setCity={setCityName} setWeather={setWeatherData}/>
+      <div className={ changeTheme(weatherData.main.temp) }>
+        <WeatherForm city={cityName} setCity={setCityName} weatherInfo={weatherData} setWeather={setWeatherData}/>
         <WeatherContent city={cityName} weatherInfo={weatherData}/>  
       </div>  
     </React.Fragment>

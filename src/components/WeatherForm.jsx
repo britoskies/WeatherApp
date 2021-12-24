@@ -9,30 +9,53 @@ function WeatherForm(props) {
 
   const getWeather = async e => {
     if (e.key === "Enter"){
-      const response = await fetch(`${domain}weather?q=${props.city}&appid=${key}&units=metric`)
-      const data = await response.json();
-      props.setWeather(data);
-    }
+
+      // Validation
+
+      if (props.city === ""){
+        alert("Please enter a city name");
+        return;
+      }
+
+      // Displaying weather
+
+      const response = await fetch(`${domain}weather?q=${props.city}&appid=${key}&units=metric`);
+      const apiData = await response.json();
+ 
+      if (response.ok) {
+        return props.setWeather(apiData); // return success object
+      }
+
+      // Error Handling when input city isn't found
+
+      const responseError = {
+        type: 'Error',
+        message: 'City not found!',
+      };
+
+      const error = new Error(responseError.message);
+
+      return alert(error);
+    };
   };
 
   return (
     <div className="weather-form">
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
+        onSubmit={(e) => {e.preventDefault()}}
         className="flex flex-col items-center justify-center gap-3 m-10">
         
-        <label className="text-base"> Tell us your city name </label>
+        <label className="text-2xl font-black m-10"> Weather Forecast </label>
         <input
           type="text"
           name="city"
           value={props.city}
           onChange={handleChange}
           onKeyPress={getWeather}
-          placeholder="Santo Domingo"
-          className="text-black border-solid border-2 p-2"
+          placeholder="Search..."
+          autoComplete='off'
+          className="input text-black border-solid border-2 p-2 pl-4"
         />
       </form>
 

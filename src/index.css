@@ -4,7 +4,7 @@
 
 
 label {
-    text-shadow: 3px 3px rgba(50,50,70,0.1);
+    text-shadow: 3px 3px rgb(50,50,70,0.1);
 }    
 
 .container {
@@ -18,25 +18,54 @@ label {
     width: 100vw;
     max-width: 6500px;
 
-    background-image: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('./assets/hot-bg.jpg');
+    background-image: linear-gradient(to left top, rgb(0,0,0,0.2), rgb(0,0,0,.8)), url('./assets/hot-bg.jpg');
     background-size: cover;
-    transition: 0.4s ease-out;
+    transition: 0.5s ease-out;
 }
 
 .container.cold {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.55)), url('./assets/cold-bg.jpg');
+    background-image: linear-gradient(to bottom, rgb(0,0,0,0.2), rgb(0,0,0,0.55)), url('./assets/cold-bg.jpg');
+}
+
+.container.cloudy {
+    background-image: linear-gradient(to bottom, rgb(0,0,0,0.2), rgb(0,0,0,0.55)), url('./assets/cloudy-bg.jpg');
+}
+
+.input {
+    background-color: rgb(255,255,255,0.7);
+    border: none;
+    box-shadow: 3px 3px rgb(50,50,70,0.5);
+    border-radius: 1em;
+}
+
+input:focus {
+	outline: none;
+}
+
+.location-name {
+    text-shadow: 3px 1px rgb(50,50,70,0.5);
 }
 
 .date {
-    text-shadow: 3px 3px rgba(50,50,70,0.5);
+  
 }
 
 .degrees {
     font-size: 75px;
-    text-shadow: 3px 3px rgba(50,50,70,0.5);
+    text-shadow: 3px 3px rgb(50,50,70,0.5);
+
+    background-color: rgb(255,255,255,0.2);
+    border-radius: 10px;
+
+    box-shadow: 3px 3px rgb(50,50,70,0.5);
 }
 
 .desc {
-    font-size: 30px;
-    text-shadow: 3px 3px rgba(50,50,70,0.5);
+    text-shadow: 3px 3px rgb(50,50,70,0.5);
 }
+
+.content-box {
+    background-color: rgb(255,255,255,0.1);
+    border-radius: 10px;
+}
+
