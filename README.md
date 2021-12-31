@@ -2,7 +2,7 @@
 
 Open [/https://britoskies.github.io/WeatherApp](https://britoskies.github.io/WeatherApp/) to run the app.
 
-![AppView](./assets/AppView.gif)
+![AppView](./src/assets/AppView.gif)
 
 ## Description
 
