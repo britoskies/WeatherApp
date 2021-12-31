@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 label {
     text-shadow: 3px 3px rgb(50,50,70,0.5);
 }    
@@ -16,7 +15,8 @@ label {
 
     height: 100vh;
     width: 100vw;
-    max-width: 6500px;
+    min-width: 100%;
+    max-width: 1600px;
 
     background-image: linear-gradient(to left top, rgb(0,0,0,0.2), rgb(0,0,0,.8)), url('./assets/hot-bg2.jpg');
     background-size: cover;

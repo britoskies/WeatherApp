@@ -3,7 +3,11 @@ function WeatherContent(props) {
     let degrees = Math.round(props.weatherInfo?.main?.temp);
     let description = props.weatherInfo?.weather[0]?.description;
 
-    const dateGenerator = date => {
+    if (degrees === 0){
+        return '';
+    }
+
+    const generateDate = date => {
 
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -19,7 +23,7 @@ function WeatherContent(props) {
     return (
         <div className="content-box p-14">
             <p className="location-name text-2xl font-medium m-4"> {props.city} </p>
-            <p className="date text-2xl font-normal font-style: italic"> {dateGenerator(new Date())}</p>
+            <p className="date text-2xl font-normal font-style: italic"> {generateDate(new Date())}</p>
 
             <div className="weather">
                 <h1 className="degrees font-mono: Menlo m-5"> {degrees}°C </h1>
