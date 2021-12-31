@@ -10,7 +10,10 @@ function App() {
     main: {
       temp: "",
     },
-    weather: [],
+    weather: [{
+      "description": "",
+      "icon": ""
+    }],
   });
   
   const changeTheme = (temp) => {
@@ -22,7 +25,7 @@ function App() {
     if (temp <= 0.9) {
       return coldBg;
     }
-    if (temp < 23) {
+    if (temp < 32) {
       return cloudyBg;
     }
     return warmBg;

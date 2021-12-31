@@ -2,6 +2,7 @@ function WeatherContent(props) {
 
     let degrees = Math.round(props.weatherInfo?.main?.temp);
     let description = props.weatherInfo?.weather[0]?.description;
+    let icon = props.weatherInfo?.weather[0]?.icon;
 
     if (degrees === 0){
         return '';
@@ -22,12 +23,15 @@ function WeatherContent(props) {
 
     return (
         <div className="content-box p-14">
-            <p className="location-name text-2xl font-medium m-4"> {props.city} </p>
+            <p className="location-name text-2xl font-medium m-4"> {props.city.toUpperCase()} </p>
             <p className="date text-2xl font-normal font-style: italic"> {generateDate(new Date())}</p>
 
             <div className="weather">
                 <h1 className="degrees font-mono: Menlo m-5"> {degrees}°C </h1>
-                <p className="desc text-2xl font-semibold"> {description} </p>
+                <div className="description">
+                    <p className="desc text-lg font-semibold"> {description.toUpperCase()} </p>
+                    <img src={`${process.env.REACT_APP_API_DOMAIN}/img/w/${icon}.png`} alt="icon" />
+                </div>
             </div>
         </div>
     )

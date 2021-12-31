@@ -4,37 +4,37 @@ function WeatherForm(props) {
     props.setCity(e.target.value);
   };
 
-  const getWeather = async (e) => {
-
-    if (e.key === "Enter") {
-
-      // Validation
-
-      if (props.city === "") {
-        alert("Please enter a city name");
-        return;
-      }
-
-      const response = await fetch(
-        `${process.env.REACT_APP_API_DOMAIN}weather?q=${props.city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
-      );
-      const apiData = await response.json();
-
-      if (response.ok) {
-        return props.setWeather(apiData); // returns success object
-      }
-
-      props.setWeather({
-        main: {
-          temp: "",
-        },
-        weather: [],
-       });
-
-      setTimeout(() => {
-        alert('City not found');
-      },0)
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      getWeather();
     }
+  };
+
+  const getWeather = async (e) => {
+    if (props.city === "") {
+      alert("Please enter a city name");
+      return;
+    }
+
+    const response = await fetch(
+      `${process.env.REACT_APP_API_DOMAIN}/data/2.5/weather?q=${props.city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+    );
+    const apiData = await response.json();
+
+    if (response.ok) {
+      return props.setWeather(apiData); // returns success object
+    }
+
+    props.setWeather({
+      main: {
+        temp: "",
+      },
+      weather: [],
+      });
+
+    setTimeout(() => {
+      alert('City not found');
+    },0)
   };
 
   return (
@@ -51,11 +51,12 @@ function WeatherForm(props) {
           name="city"
           value={props.city}
           onChange={handleChange}
-          onKeyPress={getWeather}
+          onKeyPress={handleKeyPress}
           placeholder="Enter your city name..."
           autoComplete="off"
           className="input text-black border-solid border-2 p-2 pl-4"
         />
+        <button onClick={getWeather}></button> 
       </form>
     </div>
   );
