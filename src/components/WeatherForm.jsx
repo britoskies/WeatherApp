@@ -1,4 +1,3 @@
-// const axios = require('axios');
 import { domain,key } from '../utils/api';
 
 function WeatherForm(props) {
@@ -8,6 +7,7 @@ function WeatherForm(props) {
   }
 
   const getWeather = async e => {
+
     if (e.key === "Enter"){
 
       // Validation
@@ -17,13 +17,11 @@ function WeatherForm(props) {
         return;
       }
 
-      // Displaying weather
-
       const response = await fetch(`${domain}weather?q=${props.city}&appid=${key}&units=metric`);
       const apiData = await response.json();
- 
+
       if (response.ok) {
-        return props.setWeather(apiData); // return success object
+        return props.setWeather(apiData); // returns success object
       }
 
       // Error Handling when input city isn't found
@@ -46,14 +44,14 @@ function WeatherForm(props) {
         onSubmit={(e) => {e.preventDefault()}}
         className="flex flex-col items-center justify-center gap-3 m-10">
         
-        <label className="text-2xl font-black m-10"> Weather Forecast </label>
+        <label className="text-4xl font-black m-10"> Weather Forecast </label>
         <input
           type="text"
           name="city"
           value={props.city}
           onChange={handleChange}
           onKeyPress={getWeather}
-          placeholder="Search..."
+          placeholder="Enter your city name..."
           autoComplete='off'
           className="input text-black border-solid border-2 p-2 pl-4"
         />

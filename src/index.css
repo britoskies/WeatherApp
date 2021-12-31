@@ -4,7 +4,7 @@
 
 
 label {
-    text-shadow: 3px 3px rgb(50,50,70,0.1);
+    text-shadow: 3px 3px rgb(50,50,70,0.5);
 }    
 
 .container {
@@ -18,23 +18,23 @@ label {
     width: 100vw;
     max-width: 6500px;
 
-    background-image: linear-gradient(to left top, rgb(0,0,0,0.2), rgb(0,0,0,.8)), url('./assets/hot-bg.jpg');
+    background-image: linear-gradient(to left top, rgb(0,0,0,0.2), rgb(0,0,0,.8)), url('./assets/hot-bg2.jpg');
     background-size: cover;
     transition: 0.5s ease-out;
 }
 
 .container.cold {
-    background-image: linear-gradient(to bottom, rgb(0,0,0,0.2), rgb(0,0,0,0.55)), url('./assets/cold-bg.jpg');
+    background-image: linear-gradient(to bottom, rgb(0,0,0,0.2), rgb(0,0,0,0.55)), url('./assets/cold-bg2.jpg');
 }
 
 .container.cloudy {
-    background-image: linear-gradient(to bottom, rgb(0,0,0,0.2), rgb(0,0,0,0.55)), url('./assets/cloudy-bg.jpg');
+    background-image: linear-gradient(to bottom, rgb(0,0,0,0.2), rgb(0,0,0,0.55)), url('./assets/cloudy-bg2.jpg');
 }
 
 .input {
     background-color: rgb(255,255,255,0.7);
-    border: none;
     box-shadow: 3px 3px rgb(50,50,70,0.5);
+    border: none;
     border-radius: 1em;
 }
 
@@ -44,10 +44,6 @@ input:focus {
 
 .location-name {
     text-shadow: 3px 1px rgb(50,50,70,0.5);
-}
-
-.date {
-  
 }
 
 .degrees {
@@ -68,4 +64,3 @@ input:focus {
     background-color: rgb(255,255,255,0.1);
     border-radius: 10px;
 }
-
